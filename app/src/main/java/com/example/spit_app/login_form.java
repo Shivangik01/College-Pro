@@ -71,10 +71,10 @@ public class login_form extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(login_form.this, "Login successful", Toast.LENGTH_LONG).show();
-                                if(email==admin)
-                                    startActivity(new Intent(login_form.this, MainActivity.class));
+                                if(admin.equals(email))
+                                    startActivity(new Intent(login_form.this, AdminPage.class));
                                 else
-                                    startActivity(new Intent(login_form.this, MainActivity.class));
+                                    startActivity(new Intent(login_form.this, UserPages.class));
                                 finish();
                             } else {
                                 Toast.makeText(login_form.this, "Invalid Password or Email Id", Toast.LENGTH_LONG).show();
