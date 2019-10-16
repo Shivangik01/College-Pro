@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_announcements2">
+
+    <fragment
+        android:id="@+id/navigation_announcements2"
+        android:name="com.example.spit_app.ui2.AnnouncementsFragment2"
+        android:label="Announcements"
+        tools:layout="@layout/fragment_announcements2" />
+
+    <fragment
+        android:id="@+id/navigation_home2"
+        android:name="com.example.spit_app.ui2.HomeFragment2"
+        android:label="Home"
+        tools:layout="@layout/fragment_home2" />
+
+    <fragment
+        android:id="@+id/navigation_events2"
+        android:name="com.example.spit_app.ui2.EventsFragment2"
+        android:label="Events"
+        tools:layout="@layout/fragment_events2" />
+</navigation>
