@@ -3,6 +3,7 @@ package com.example.spit_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class signup_form extends AppCompatActivity {
         txtEmail= (TextInputEditText) findViewById(R.id.txt_email);
         txtPassword= (TextInputEditText) findViewById(R.id.txt_password);
         txtConfirmPassword= (TextInputEditText) findViewById(R.id.txt_confirmpassword);
-        txtuid =(TextInputEditText) findViewById(R.id.uid);
+        txtuid =(TextInputEditText) findViewById(R.id.uid1);
 
         btn_register=(Button)findViewById(R.id.buttonregister);
         firebaseAuth=FirebaseAuth.getInstance();
@@ -49,6 +50,11 @@ public class signup_form extends AppCompatActivity {
                 if(TextUtils.isEmpty(email))
                 {
                     Toast.makeText(signup_form.this, "Please enter your email Id", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                {
+                    Toast.makeText(signup_form.this, "Please enter correct syntax for email!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

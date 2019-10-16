@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,125 +8,135 @@
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".signup_form">
-
-
-    <com.google.android.material.textfield.TextInputLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
+        android:layout_height="match_parent">
 
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:hint="User name"
-            android:inputType="text"
-            android:textSize="22sp" />
+            android:id="@+id/username1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
 
-    </com.google.android.material.textfield.TextInputLayout>
+            >
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="User name"
+                android:inputType="text"
+                android:textSize="22sp" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/uid"
-        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="UID NO"
-        android:inputType="text"
-        android:textSize="22sp"
-       />
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_uid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-
-        android:focusableInTouchMode="true"
-     >
-
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/txt_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Email Id"
-        android:inputType="text"
-        android:textSize="22sp"
-        />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_passwordLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        app:passwordToggleEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txt_password"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textSize="22sp"
-            tools:ignore="DuplicateIds" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:id="@+id/uid"
+            android:layout_below="@id/username1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        app:passwordToggleEnabled="true"
+            <com.google.android.material.textfield.TextInputEditText
 
-       >
+                style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/uid1"
+                android:ems="10"
+                android:hint="UID NO"
+                android:inputType="text"
+                android:textSize="22sp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_email1"
+            android:layout_below="@id/uid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/txt_confirmpassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:textSize="22sp"
-         />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/buttonregister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="#188029"
-        android:text="SIGN UP"
-        android:textColor="#0F090C"
-        android:textSize="25sp" />
+            android:focusableInTouchMode="true"
+            >
 
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Email Id"
+                android:inputType="text"
+                android:textSize="22sp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_passwordLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_email1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textSize="22sp"
+                tools:ignore="DuplicateIds" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_confirmpassword1"
+            android:layout_below="@id/txt_passwordLayout1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:passwordToggleEnabled="true"
+
+            >
 
 
-</LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_confirmpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textSize="22sp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonregister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_confirmpassword1"
+            android:layout_marginTop="40dp"
+            android:background="#188029"
+            android:text="SIGN UP"
+            android:textColor="#0F090C"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+</ScrollView>
 
