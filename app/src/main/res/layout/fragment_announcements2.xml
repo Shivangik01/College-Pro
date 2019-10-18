@@ -18,38 +18,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/textyear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="63dp"
+        android:layout_height="38dp"
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="128dp"
         android:layout_marginEnd="355dp"
         android:layout_marginRight="355dp"
-        android:text="YEAR"
-        android:textSize="20sp"
+        android:gravity="center"
+        android:text="EVENT NAME"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="344dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="104dp"
-        android:entries="@array/year"
-        android:gravity="center"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="67dp" />
 
     <EditText
         android:id="@+id/textinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textyear"
-        android:layout_marginTop="154dp"
+        android:layout_marginTop="196dp"
         android:gravity="start|top"
         android:hint="Enter Announcement"
         android:inputType="textMultiLine"
@@ -63,7 +55,7 @@
         android:layout_below="@id/textinfo"
         android:layout_marginStart="161dp"
         android:layout_marginLeft="161dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="264dp"
         android:layout_marginEnd="162dp"
         android:layout_marginRight="162dp"
         android:text="ADD EVENT"
@@ -80,27 +72,53 @@
         android:layout_marginStart="75dp"
         android:layout_marginLeft="75dp"
         android:layout_marginTop="69dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="637dp"
+        android:gravity="center"
         android:hint="Select Date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="52dp"
-        android:layout_height="17dp"
+        android:layout_width="70dp"
+        android:layout_height="29dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="69dp"
         android:layout_marginEnd="355dp"
         android:layout_marginRight="355dp"
+        android:gravity="center"
         android:text="DATE"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/textyear"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/events"
+        android:layout_width="334dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="562dp"
+        android:ems="10"
+        android:hint="Enter Event Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

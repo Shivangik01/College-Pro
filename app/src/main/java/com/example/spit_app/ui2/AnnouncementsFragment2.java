@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +31,7 @@ public class AnnouncementsFragment2 extends Fragment {
     private AnnouncementsViewModel2 announcementsViewModel;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
-    Spinner spinneryear;
+    EditText eventname;
     EditText announce;
     Button buttonAdd;
     DatabaseReference DatabaseAnnouncement;
@@ -88,7 +87,8 @@ public class AnnouncementsFragment2 extends Fragment {
         };
 
 
-        spinneryear = (Spinner) root.findViewById(R.id.spinner);
+
+        eventname = (EditText) root.findViewById(R.id.events);
         announce = (EditText) root.findViewById(R.id.textinfo);
         buttonAdd = (Button) root.findViewById(R.id.buttonadd);
 
@@ -112,14 +112,14 @@ public class AnnouncementsFragment2 extends Fragment {
     }
 
     private void addData() {
-        String year= spinneryear.getSelectedItem().toString();
+        String event= eventname.getText().toString();
         String data=announce.getText().toString();
 
         if(!TextUtils.isEmpty(data)){
 
             String id = DatabaseAnnouncement.push().getKey();
 
-            Announcing announceobj = new Announcing(id,data,year,Date);
+            Announcing announceobj = new Announcing(id,data,event,Date);
             DatabaseAnnouncement.child(id).setValue(announceobj);
 
             Toast.makeText(getActivity(), "Announcement added",Toast.LENGTH_LONG).show();
