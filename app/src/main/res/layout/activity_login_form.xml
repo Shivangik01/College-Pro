@@ -101,9 +101,9 @@
             android:layout_width="342dp"
             android:layout_height="45dp"
             android:layout_marginTop="20dp"
-            android:background="#188029"
+            android:background="@color/cyan"
             android:text="SIGN UP"
-            android:textColor="#FF0A0909"
+            android:textColor="@color/white"
             android:textSize="25dp" />
 
     </RelativeLayout>

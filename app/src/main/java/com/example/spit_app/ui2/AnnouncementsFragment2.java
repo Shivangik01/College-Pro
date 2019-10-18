@@ -15,10 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.spit_app.R;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +25,7 @@ import java.util.Calendar;
 
 public class AnnouncementsFragment2 extends Fragment {
 
-    private AnnouncementsViewModel2 announcementsViewModel;
+
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     EditText eventname;
@@ -39,10 +36,9 @@ public class AnnouncementsFragment2 extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container2, Bundle savedInstanceState) {
-        announcementsViewModel =
-                ViewModelProviders.of(this).get(AnnouncementsViewModel2.class);
+
         View root = inflater.inflate(R.layout.fragment_announcements2, container2, false);
-        final TextView textView = root.findViewById(R.id.text_announcements2);
+
         final TextView mDisplayDate = (TextView) root.findViewById(R.id.textView4);
 
             mDisplayDate.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +56,7 @@ public class AnnouncementsFragment2 extends Fragment {
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
                         year, month, day);
+
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -101,12 +98,7 @@ public class AnnouncementsFragment2 extends Fragment {
             }
         });
 
-        announcementsViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
 
         return root;
     }

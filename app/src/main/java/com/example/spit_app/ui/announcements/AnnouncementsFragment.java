@@ -4,32 +4,66 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.spit_app.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnnouncementsFragment extends Fragment {
 
-    private AnnouncementsViewModel announcementsViewModel;
+    DatabaseReference DatabaseAnnouncement;
+
+    ListView listView;
+    List<Announcing> announcelist;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        announcementsViewModel =
-                ViewModelProviders.of(this).get(AnnouncementsViewModel.class);
+
+        announcelist = new ArrayList<>();
+
+        DatabaseAnnouncement= FirebaseDatabase.getInstance().getReference();
+
+
         View root = inflater.inflate(R.layout.fragment_announcements1, container, false);
-        final TextView textView = root.findViewById(R.id.text_announcements1);
-        announcementsViewModel.getText().observe(this, new Observer<String>() {
+
+        listView=(ListView) root.findViewById(R.id.listview);
+
+        return root;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        DatabaseAnnouncement.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                announcelist.clear();
+                for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
+                    Announcing announce =announcementSnapshot.getValue(Announcing.class);
+                    announcelist.add(announce);
+                }
+
+                AnnouncementList adapter = new AnnouncementList(getActivity(), announcelist);
+                listView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
-        return root;
     }
 }
