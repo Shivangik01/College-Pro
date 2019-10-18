@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">spit_app</string>
+    <array name="year">
+        <item>FE</item>
+        <item>SE</item>
+        <item>TE</item>
+        <item>BE</item>
+        <item>ALL YEARS</item>
+    </array>
 </resources>
