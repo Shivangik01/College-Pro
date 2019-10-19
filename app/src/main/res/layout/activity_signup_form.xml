@@ -29,7 +29,8 @@
                 android:ems="10"
                 android:hint="User name"
                 android:inputType="text"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,9 +132,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_confirmpassword1"
             android:layout_marginTop="40dp"
-            android:background="#188029"
+            android:background="@drawable/custom_button1"
             android:text="SIGN UP"
-            android:textColor="#0F090C"
+            android:textColor="@color/white"
             android:textSize="25sp" />
 
     </RelativeLayout>
