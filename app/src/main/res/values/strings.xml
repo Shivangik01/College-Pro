@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">spit_app</string>
+    
+    <string-array name="committees">
+        <item>FACE</item>
+        <item>CSI</item>
+        <item>ECELL</item>
+        <item>ROTARACT CLUB</item>
+        <item>IEEE</item>
+        <item>ITSA</item>
+        <item>ESA</item>
+        <item>MUDRA</item>
+        <item>CODING CLUB</item>
+        <item>SPARK</item>
+
+    </string-array>
+
 </resources>
