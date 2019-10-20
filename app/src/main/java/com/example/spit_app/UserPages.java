@@ -1,7 +1,12 @@
 package com.example.spit_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -27,4 +32,42 @@ public class UserPages extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_settings:
+
+                return true;
+
+            case R.id.action_profile:
+
+                return true;
+
+            case R.id.action_help:
+
+                return true;
+
+            case R.id.action_about:
+
+                return true;
+
+            case R.id.action_logout:
+
+                Intent logout=new Intent(UserPages.this, login_form.class);
+                startActivity(logout);
+                finish();
+                Toast.makeText(UserPages.this, "You have logged out successfully!", Toast.LENGTH_LONG).show();
+                return true;
+
+             default:return super.onOptionsItemSelected(item);
+        }
+
+    }
 }

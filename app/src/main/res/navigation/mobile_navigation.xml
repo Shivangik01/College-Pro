@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_announcements1"
-        android:name="com.example.spit_app.ui.announcements.AnnouncementsFragment"
+        android:name="com.example.spit_app.user.announcements.AnnouncementsFragment"
         android:label="Announcements"
         tools:layout="@layout/fragment_announcements1" />
 
     <fragment
         android:id="@+id/navigation_home1"
-        android:name="com.example.spit_app.ui.home.HomeFragment"
+        android:name="com.example.spit_app.user.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home1" />
 
     <fragment
         android:id="@+id/navigation_events1"
-        android:name="com.example.spit_app.ui.events.EventsFragment"
+        android:name="com.example.spit_app.user.events.EventsFragment"
         android:label="Events"
         tools:layout="@layout/fragment_events1" />
 </navigation>
