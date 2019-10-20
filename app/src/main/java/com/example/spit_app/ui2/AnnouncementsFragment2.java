@@ -78,7 +78,7 @@ public class AnnouncementsFragment2 extends Fragment {
         announce = (EditText) root.findViewById(R.id.textinfo);
         buttonAdd = (Button) root.findViewById(R.id.buttonadd);
 
-        DatabaseAnnouncement= FirebaseDatabase.getInstance().getReference();
+        DatabaseAnnouncement= FirebaseDatabase.getInstance().getReference("Announcing");
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override

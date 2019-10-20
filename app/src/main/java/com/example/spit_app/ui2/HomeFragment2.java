@@ -68,7 +68,7 @@ public class HomeFragment2 extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                String date = month + "/" + day + "/" + year;
+                String date = day + "/" + month + "/" + year;
                 Date = date;
                 mDisplayDate.setText(date);
             }
@@ -80,7 +80,7 @@ public class HomeFragment2 extends Fragment {
 
         Add = (Button) root.findViewById(R.id.button3);
 
-        DatabaseCommittee= FirebaseDatabase.getInstance().getReference();
+        DatabaseCommittee= FirebaseDatabase.getInstance().getReference("CommitteeAnnouncements");
 
         Add.setOnClickListener(new View.OnClickListener() {
             @Override
