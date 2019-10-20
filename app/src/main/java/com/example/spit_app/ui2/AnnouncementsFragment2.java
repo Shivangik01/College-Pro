@@ -25,7 +25,6 @@ import java.util.Calendar;
 
 public class AnnouncementsFragment2 extends Fragment {
 
-
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     EditText eventname;
@@ -66,16 +65,6 @@ public class AnnouncementsFragment2 extends Fragment {
             mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                int flag1;
-                Calendar cal = Calendar.getInstance();
-                if (year < cal.get(Calendar.YEAR) || month + 1 < cal.get(Calendar.MONTH) || day <= cal.get(Calendar.DAY_OF_MONTH)) {
-                    Toast.makeText(getActivity(), "Enter a valid date", Toast.LENGTH_LONG).show();
-                    flag1=0;
-                }
-                else if(year > cal.get(Calendar.YEAR) || month + 1 > cal.get(Calendar.MONTH) || day > cal.get(Calendar.DAY_OF_MONTH))
-                {
-                    flag1=1;
-                }
                 month = month + 1;
                 String date = month + "/" + day + "/" + year;
                 Date = date;

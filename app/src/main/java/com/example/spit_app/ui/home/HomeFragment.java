@@ -16,11 +16,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private List<String> list;
     private RecyclerAdapter adapter;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
