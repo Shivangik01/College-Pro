@@ -66,7 +66,7 @@ public class AnnouncementsFragment2 extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                String date = month + "/" + day + "/" + year;
+                String date = day + "/" + month + "/" + year;
                 Date = date;
                 mDisplayDate.setText(date);
             }

@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".user.announcements.AnnouncementDisplay"></activity>
         <activity
             android:name=".AdminPage"
-            android:label="AdminPage"></activity>
+            android:label="AdminPage" />
         <activity
             android:name=".UserPages"
             android:label="UserPage" />

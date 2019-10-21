@@ -17,6 +17,11 @@ public class Announcing {
         this.date=date;
     }
 
+    public void setDate(String date){this.date=date;}
+
+    public void setEvent(String event){this.event=event; }
+
+
     public String getAnnounceid() {
         return announceid;
     }

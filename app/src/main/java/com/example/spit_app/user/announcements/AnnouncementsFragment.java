@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spit_app.R;
+import com.example.spit_app.user.home.RecyclerAdapter;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,43 +25,36 @@ import java.util.List;
 
 public class AnnouncementsFragment extends Fragment {
 
-    DatabaseReference DatabaseAnnouncement;
-
-    ListView listView;
-    List<Announcing> announcelist;
-
+    FirebaseDatabase DatabaseAnnouncement;
+    DatabaseReference reference;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private List<Announcing> list;
+    private Recycler_Adapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        announcelist = new ArrayList<>();
 
-        DatabaseAnnouncement= FirebaseDatabase.getInstance().getReference();
-
+        DatabaseAnnouncement = FirebaseDatabase.getInstance();
 
         View root = inflater.inflate(R.layout.fragment_announcements1, container, false);
+        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerviewannounce);
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        list= new ArrayList<Announcing>();
 
-        listView=(ListView) root.findViewById(R.id.listview);
-
-        return root;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        DatabaseAnnouncement.addValueEventListener(new ValueEventListener() {
+        reference = DatabaseAnnouncement.getReference().child("Announcing");
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                announcelist.clear();
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
-                    Announcing announce =announcementSnapshot.getValue(Announcing.class);
-                    announcelist.add(announce);
+                    Announcing announce= announcementSnapshot.getValue(Announcing.class);
+                    list.add(announce);
                 }
 
-                AnnouncementList adapter = new AnnouncementList(getActivity(), announcelist);
-                listView.setAdapter(adapter);
-
+                adapter=new Recycler_Adapter(list,getContext());
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
@@ -65,5 +62,9 @@ public class AnnouncementsFragment extends Fragment {
 
             }
         });
+
+        return root;
+
+
     }
 }
