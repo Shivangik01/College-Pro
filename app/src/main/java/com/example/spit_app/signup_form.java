@@ -49,10 +49,11 @@ public class signup_form extends AppCompatActivity {
             public void onClick(View view) {
 
                 String username=txtusername.getText().toString().trim();
-                String email=txtEmail.getText().toString().trim();
+                final String email=txtEmail.getText().toString().trim();
                 String password=txtPassword.getText().toString().trim();
                 String confirmpassword=txtConfirmPassword.getText().toString().trim();
                 String uid=txtuid.getText().toString().trim();
+                long UID=Long.parseLong(uid);
 
                 if(TextUtils.isEmpty(email))
                 {
@@ -81,7 +82,7 @@ public class signup_form extends AppCompatActivity {
                     return;
                 }
 
-                if(uid.length()!=10)
+                if(uid.length()!=10 || UID>2019140100 || UID<=2016000000)
                 {
                     Toast.makeText( signup_form.this,  " Invalid UID" ,Toast.LENGTH_SHORT).show();
                 }
@@ -101,36 +102,36 @@ public class signup_form extends AppCompatActivity {
 
                                         startActivity(new Intent(getApplicationContext(),login_form.class));
                                         Toast.makeText(signup_form.this, "Successful Signup", Toast.LENGTH_LONG).show();
+                                        FirebaseUser user=firebaseAuth.getCurrentUser();
+                                        String userId=user.getUid();
+                                        myRef =FirebaseDatabase.getInstance().getReference("Users");
+
+                                        String newUser = txtusername.getText().toString();
+                                        String newUID = txtuid.getText().toString();
+                                        String newEmail = txtEmail.getText().toString();
+
+                                        myRef.child(userId).child("ID").setValue(userId);
+                                        myRef.child(userId).child("Username").setValue(newUser);
+                                        myRef.child(userId).child("UID").setValue(newUID);
+                                        myRef.child(userId).child("Email").setValue(newEmail);
+                                        toastMessage("Adding to the database...");
+                                        txtuid.setText("");
+                                        txtusername.setText("");
                                         finish();
 
                                     } else {
 
                                         Toast.makeText(signup_form.this, "Signup Failed", Toast.LENGTH_SHORT).show();
                                     }
-
-                                    //.
                                 }
                             });
 
                 }
-                FirebaseUser user=firebaseAuth.getCurrentUser();
-                String userId=user.getUid();
-                myRef =FirebaseDatabase.getInstance().getReference();
 
-
-                String newUser = txtusername.getText().toString();
-                String newUID = txtuid.getText().toString();
-
-                myRef.child(userId).child("Username").setValue(newUser);
-                myRef.child(userId).child("UID").setValue(newUID);
-                toastMessage("Adding to the database...");
-                txtuid.setText("");
-                txtusername.setText("");
 
             }
 
         });
-
     }
     private void toastMessage(String message){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();

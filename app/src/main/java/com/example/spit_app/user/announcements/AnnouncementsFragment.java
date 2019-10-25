@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -44,7 +45,11 @@ public class AnnouncementsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         list= new ArrayList<Announcing>();
 
-        reference = DatabaseAnnouncement.getReference().child("Announcing");
+        reference =  DatabaseAnnouncement.getReference().child("Announcing");
+        Query query= DatabaseAnnouncement.getReference().child("Announcing").orderByChild("Date");
+
+
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
