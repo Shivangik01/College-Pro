@@ -42,7 +42,6 @@ public class UserPages extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_settings:
-                startActivity(new Intent(UserPages.this, Settings.class));
                 return true;
 
             case R.id.action_change_username:
