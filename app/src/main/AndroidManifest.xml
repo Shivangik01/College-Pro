@@ -14,7 +14,6 @@
         <activity android:name=".Change_username" />
         <activity android:name=".Help" />
         <activity android:name=".Profile" />
-        <activity android:name=".Settings" />
         <activity android:name=".user.announcements.AnnouncementDisplay" />
         <activity
             android:name=".AdminPage"
