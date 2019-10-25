@@ -12,7 +12,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class UserPages extends AppCompatActivity {
@@ -43,19 +42,27 @@ public class UserPages extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_settings:
+                startActivity(new Intent(UserPages.this, Settings.class));
+                return true;
 
+            case R.id.action_change_username:
+                startActivity(new Intent(UserPages.this, Change_username.class));
+                return true;
+
+            case R.id.action_change_password:
+                startActivity(new Intent(UserPages.this, Change_password.class));
                 return true;
 
             case R.id.action_profile:
-
+                startActivity(new Intent(UserPages.this, Profile.class));
                 return true;
 
             case R.id.action_help:
-
+                startActivity(new Intent(UserPages.this, Help.class));
                 return true;
 
             case R.id.action_about:
-
+                startActivity(new Intent(UserPages.this, About.class));
                 return true;
 
             case R.id.action_logout:

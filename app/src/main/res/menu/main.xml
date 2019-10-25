@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="Settings"
-        android:icon="@drawable/ic_settings_black_24dp"
-        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_profile"
         android:orderInCategory="100"
         android:title="Profile"
-        app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_help"
-        android:orderInCategory="100"
-        android:title="Help"
-        android:icon="@drawable/ic_help_outline_black_24dp"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_about"
@@ -32,4 +20,32 @@
         android:orderInCategory="100"
         android:title="Logout"
         app:showAsAction="never" />
+
+    <item
+        android:title="Settings"
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings_black_24dp"
+        app:showAsAction="ifRoom">
+
+
+        <menu>
+
+            <item
+                android:id="@+id/action_help"
+                android:title="Help"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_change_username"
+                android:title="Change Username"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_change_password"
+                android:title="Change Password"
+                app:showAsAction="never" />
+
+        </menu>
+
+    </item>
 </menu>

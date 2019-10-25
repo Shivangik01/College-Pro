@@ -16,12 +16,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class signup_form extends AppCompatActivity {
 
-   TextInputEditText  txtEmail,txtPassword,txtConfirmPassword,txtuid;
+    private static final String TAG = "signup_form";
+    TextInputEditText  txtusername,txtEmail,txtPassword,txtConfirmPassword,txtuid;
     Button btn_register;
-    private FirebaseAuth firebaseAuth;
+    FirebaseAuth firebaseAuth;
+    DatabaseReference myRef;
+    FirebaseDatabase mFirebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +35,7 @@ public class signup_form extends AppCompatActivity {
         setContentView(R.layout.activity_signup_form);
         getSupportActionBar().setTitle("SIGN UP FORM");
 
-
+        txtusername=(TextInputEditText)findViewById(R.id.username);
         txtEmail= (TextInputEditText) findViewById(R.id.txt_email);
         txtPassword= (TextInputEditText) findViewById(R.id.txt_password);
         txtConfirmPassword= (TextInputEditText) findViewById(R.id.txt_confirmpassword);
@@ -42,6 +48,7 @@ public class signup_form extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                String username=txtusername.getText().toString().trim();
                 String email=txtEmail.getText().toString().trim();
                 String password=txtPassword.getText().toString().trim();
                 String confirmpassword=txtConfirmPassword.getText().toString().trim();
@@ -93,7 +100,7 @@ public class signup_form extends AppCompatActivity {
                                     if (task.isSuccessful()) {
 
                                         startActivity(new Intent(getApplicationContext(),login_form.class));
-                                        Toast.makeText(signup_form.this, "Successful Signup", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(signup_form.this, "Successful Signup", Toast.LENGTH_LONG).show();
                                         finish();
 
                                     } else {
@@ -104,11 +111,28 @@ public class signup_form extends AppCompatActivity {
                                     //.
                                 }
                             });
-                }
 
+                }
+                FirebaseUser user=firebaseAuth.getCurrentUser();
+                String userId=user.getUid();
+                myRef =FirebaseDatabase.getInstance().getReference();
+
+
+                String newUser = txtusername.getText().toString();
+                String newUID = txtuid.getText().toString();
+
+                myRef.child(userId).child("Username").setValue(newUser);
+                myRef.child(userId).child("UID").setValue(newUID);
+                toastMessage("Adding to the database...");
+                txtuid.setText("");
+                txtusername.setText("");
 
             }
+
         });
 
+    }
+    private void toastMessage(String message){
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }

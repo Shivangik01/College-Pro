@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".user.announcements.AnnouncementDisplay"></activity>
+        <activity android:name=".About"/>
+        <activity android:name=".Change_password" />
+        <activity android:name=".Change_username" />
+        <activity android:name=".Help" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Settings" />
+        <activity android:name=".user.announcements.AnnouncementDisplay" />
         <activity
             android:name=".AdminPage"
             android:label="AdminPage" />
