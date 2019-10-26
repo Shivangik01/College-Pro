@@ -26,12 +26,7 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        name = findViewById(R.id.user);
-        uid = findViewById(R.id.uidname);
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        profile = FirebaseDatabase.getInstance();
-        reference = (DatabaseReference) profile.getReference().child("Users").child("Email").equalTo(String.valueOf(user));
-        uid.setText(reference.child("UID").toString());
+
 
     }
 }
