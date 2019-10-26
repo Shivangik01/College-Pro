@@ -1,7 +1,12 @@
 package com.example.spit_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -26,5 +31,49 @@ public class AdminPage extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController2, appBarConfiguration2);
         NavigationUI.setupWithNavController(navView2, navController2);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main2, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_settings2:
+                return true;
+
+            case R.id.action_change_username2:
+                startActivity(new Intent(AdminPage.this, Change_username.class));
+                return true;
+
+            case R.id.action_change_password2:
+                startActivity(new Intent(AdminPage.this, Change_password.class));
+                return true;
+
+            case R.id.action_profile2:
+                startActivity(new Intent(AdminPage.this, Profile.class));
+                return true;
+
+            case R.id.action_help2:
+                startActivity(new Intent(AdminPage.this, Help.class));
+                return true;
+
+            case R.id.action_about2:
+                startActivity(new Intent(AdminPage.this, About.class));
+                return true;
+
+            case R.id.action_logout2:
+
+                Intent logout=new Intent(AdminPage.this, login_form.class);
+                startActivity(logout);
+                finish();
+                Toast.makeText(AdminPage.this, "You have logged out successfully!", Toast.LENGTH_LONG).show();
+                return true;
+
+            default:return super.onOptionsItemSelected(item);
+        }
+
+    }
 }

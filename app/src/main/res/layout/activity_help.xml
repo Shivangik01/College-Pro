@@ -6,4 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".Help">
 
+    <TextView
+        android:id="@+id/title_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
+        android:text="HELP"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/content_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp"
+        android:text="In case you face any issues regarding this app, please contact the app developers"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title_help" />
+
+    <TextView
+        android:id="@+id/neha_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp"
+        android:text="Neha Kale: 9892163154"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/content_help" />
+
+    <TextView
+        android:id="@+id/shivi_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
+        android:text="Shivangi Kochrekar: "
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/neha_help" />
+
+    <TextView
+        android:id="@+id/prachi_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
+        android:text="Prachi Mehta: "
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/shivi_help" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
