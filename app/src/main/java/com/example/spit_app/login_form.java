@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class login_form extends AppCompatActivity {
 
-    ActionBar actionBar;
+
     EditText txtEmail,txtPassword;
     FirebaseAuth mfirebaseAuth;
     FirebaseAuth.AuthStateListener mAuthStateListner;
@@ -33,15 +33,13 @@ public class login_form extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_form);
-        getSupportActionBar().setTitle("LOGIN FORM");
+
         txtEmail = (TextInputEditText) findViewById(R.id.e1);
         txtPassword = (TextInputEditText) findViewById(R.id.p1);
         Button btn_login = (Button) findViewById(R.id.buttonLogin);
         Button btnsignup = (Button) findViewById(R.id.btn_signupform);
         mfirebaseAuth = FirebaseAuth.getInstance();
         final String admin="admin@gmail.com";
-        actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#009999")));
 
         btnsignup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

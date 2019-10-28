@@ -24,6 +24,7 @@ import java.util.List;
 public class AnnouncementsFragment extends Fragment {
 
     FirebaseDatabase DatabaseAnnouncement;
+    DatabaseReference reference;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private List<Announcing> list;
@@ -41,7 +42,7 @@ public class AnnouncementsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         list= new ArrayList<Announcing>();
 
-        Query query=DatabaseAnnouncement.getReference().child("GeneralAnnouncements").orderByChild("date");
+        Query query= DatabaseAnnouncement.getReference().child("GeneralAnnouncements").orderByChild("date");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

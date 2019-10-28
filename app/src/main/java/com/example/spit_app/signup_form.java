@@ -32,7 +32,6 @@ public class signup_form extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_form);
-        getSupportActionBar().setTitle("SIGN UP FORM");
 
         txtusername=(TextInputEditText)findViewById(R.id.username);
         txtEmail= (TextInputEditText) findViewById(R.id.txt_email);

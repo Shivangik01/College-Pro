@@ -47,6 +47,5 @@ public class Profile extends AppCompatActivity {
 
             }
         });
-
     }
 }
