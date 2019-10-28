@@ -24,7 +24,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home1, container, false);
+        View root = inflater.inflate(R.layout.fragment_home_user, container, false);
         recyclerView=root.findViewById(R.id.recyclerview);
         layoutManager= new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);

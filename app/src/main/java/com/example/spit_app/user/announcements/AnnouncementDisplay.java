@@ -25,6 +25,7 @@ public class AnnouncementDisplay extends AppCompatActivity {
         eventname=findViewById(R.id.eventn);
         date=findViewById(R.id.daten);
         Description=findViewById(R.id.desn);
+        mark=findViewById(R.id.mark);
 
         eventname.setText(getIntent().getStringExtra("Eventname"));
         date.setText(getIntent().getStringExtra("Date"));

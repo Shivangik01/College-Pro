@@ -38,7 +38,7 @@ public class HomeFragment2 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container2, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_home2, container2, false);
+        View root = inflater.inflate(R.layout.fragment_home_admin, container2, false);
 
         final TextView mDisplayDate = (TextView) root.findViewById(R.id.codate);
 

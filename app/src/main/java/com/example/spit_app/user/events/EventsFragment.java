@@ -17,7 +17,7 @@ public class EventsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_events1, container, false);
+        View root = inflater.inflate(R.layout.fragment_events_user, container, false);
 
         return root;
     }

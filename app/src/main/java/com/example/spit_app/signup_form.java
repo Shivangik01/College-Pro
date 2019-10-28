@@ -66,33 +66,33 @@ public class signup_form extends AppCompatActivity {
                     return;
                 }
 
-                if(TextUtils.isEmpty(uid)){
+                else if(TextUtils.isEmpty(uid)){
                     Toast.makeText(signup_form.this, "Please enter your UID number",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if(TextUtils.isEmpty(password)){
+                else if(TextUtils.isEmpty(password)){
                    Toast.makeText(signup_form.this, "Please enter the password", Toast.LENGTH_SHORT).show();
                    return;
                }
 
-                if(TextUtils.isEmpty(confirmpassword))
+                else if(TextUtils.isEmpty(confirmpassword))
                 {
                     Toast.makeText(signup_form.this, "Please enter confirm the password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if(uid.length()!=10 || UID>2019140100 || UID<=2016000000)
+                else if(uid.length()!=10 || UID>2019140100 || UID<=2016000000)
                 {
                     Toast.makeText( signup_form.this,  " Invalid UID" ,Toast.LENGTH_SHORT).show();
                 }
 
-                if(password.length()<6)
+                else if(password.length()<6)
                 {
                     Toast.makeText(signup_form.this, "Password is too Short ", Toast.LENGTH_SHORT).show();
                 }
 
-                if(password.equals(confirmpassword))
+                else if(password.equals(confirmpassword))
                 {
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(signup_form.this, new OnCompleteListener<AuthResult>() {
