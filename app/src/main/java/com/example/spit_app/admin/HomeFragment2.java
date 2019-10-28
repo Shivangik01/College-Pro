@@ -28,19 +28,19 @@ public class HomeFragment2 extends Fragment {
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
-    EditText eventname;
-    EditText description;
-    Spinner committeename;
-    Button Add;
-    DatabaseReference DatabaseCommittee;
-    String Date;
+    private EditText eventname;
+    private EditText description;
+    private Spinner committeename;
+    private Button Add;
+    private DatabaseReference DatabaseCommittee;
+    private String Date;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container2, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_home_admin, container2, false);
 
-        final TextView mDisplayDate = (TextView) root.findViewById(R.id.codate);
+        final TextView mDisplayDate = root.findViewById(R.id.codate);
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
 
@@ -74,11 +74,11 @@ public class HomeFragment2 extends Fragment {
             }
         };
 
-        eventname = (EditText) root.findViewById(R.id.coevent);
-        description = (EditText) root.findViewById(R.id.codes);
-        committeename = (Spinner) root.findViewById(R.id.coname);
+        eventname =  root.findViewById(R.id.coevent);
+        description =  root.findViewById(R.id.codes);
+        committeename =  root.findViewById(R.id.coname);
 
-        Add = (Button) root.findViewById(R.id.button3);
+        Add =  root.findViewById(R.id.button3);
 
         DatabaseCommittee= FirebaseDatabase.getInstance().getReference("CommitteeAnnouncements");
 

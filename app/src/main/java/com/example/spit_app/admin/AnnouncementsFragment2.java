@@ -27,18 +27,18 @@ public class AnnouncementsFragment2 extends Fragment {
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
-    EditText eventname;
-    EditText announce;
-    Button buttonAdd;
-    DatabaseReference DatabaseAnnouncement;
-    String Date;
+    private EditText eventname;
+    private EditText announce;
+    private Button buttonAdd;
+    private DatabaseReference DatabaseAnnouncement;
+    private String Date;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container2, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_announcements_admin, container2, false);
 
-        final TextView mDisplayDate = (TextView) root.findViewById(R.id.textView4);
+        final TextView mDisplayDate = root.findViewById(R.id.textView4);
 
             mDisplayDate.setOnClickListener(new View.OnClickListener() {
 
@@ -74,9 +74,9 @@ public class AnnouncementsFragment2 extends Fragment {
 
 
 
-        eventname = (EditText) root.findViewById(R.id.events);
-        announce = (EditText) root.findViewById(R.id.textinfo);
-        buttonAdd = (Button) root.findViewById(R.id.buttonadd);
+        eventname =  root.findViewById(R.id.events);
+        announce =  root.findViewById(R.id.textinfo);
+        buttonAdd = root.findViewById(R.id.buttonadd);
 
         DatabaseAnnouncement= FirebaseDatabase.getInstance().getReference("GeneralAnnouncements");
 
@@ -100,7 +100,7 @@ public class AnnouncementsFragment2 extends Fragment {
 
             String id = DatabaseAnnouncement.push().getKey();
 
-            Announcing announceobj = new Announcing(id,data,event,Date);
+            Announcements announceobj = new Announcements(id,data,event,Date);
             DatabaseAnnouncement.child(id).setValue(announceobj);
 
             Toast.makeText(getActivity(), "Announcement added",Toast.LENGTH_LONG).show();

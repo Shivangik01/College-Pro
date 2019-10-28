@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.spit_app.R;
+import com.example.spit_app.admin.Announcements;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -43,7 +44,9 @@ public class AnnouncementDisplay extends AppCompatActivity {
                 user=firebaseAuth.getCurrentUser();
                 String userId=user.getUid();
                 myRef =FirebaseDatabase.getInstance().getReference("Users").child(userId).child("GeneralAnnouncements");
-                myRef.child("Announcementid").setValue(getIntent().getStringExtra("AnnouncementId"));
+
+                Announcements announceobj = new Announcements(getIntent().getStringExtra("AnnouncementId"),getIntent().getStringExtra("Description"),getIntent().getStringExtra("Eventname"),getIntent().getStringExtra("Date"));
+                myRef.child(getIntent().getStringExtra("AnnouncementId")).setValue(announceobj);
                 toastMessage("Marking...");
             }
         });

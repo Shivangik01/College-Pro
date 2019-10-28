@@ -15,9 +15,9 @@ import com.example.spit_app.R;
 import java.util.List;
 
 public class Recycler_Adapter extends RecyclerView.Adapter<Recycler_Adapter.ViewHolder> {
-    private List<Announcing> list;
+    private List<Announcement> list;
     private Context context;
-    public Recycler_Adapter(List<Announcing> list,Context context){
+    public Recycler_Adapter(List<Announcement> list, Context context){
         this.list=list;
         this.context=context;
     }
@@ -47,9 +47,9 @@ public class Recycler_Adapter extends RecyclerView.Adapter<Recycler_Adapter.View
         TextView eventname;
         TextView date;
         Context context;
-        List<Announcing> list;
+        List<Announcement> list;
 
-        public ViewHolder(@NonNull View itemView, Context context, List<Announcing> list) {
+        public ViewHolder(@NonNull View itemView, Context context, List<Announcement> list) {
             super(itemView);
             eventname=itemView.findViewById(R.id.events);
             date=itemView.findViewById(R.id.date);

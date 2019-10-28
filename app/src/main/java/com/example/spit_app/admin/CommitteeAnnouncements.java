@@ -1,15 +1,12 @@
 package com.example.spit_app.admin;
 
 public class CommitteeAnnouncements {
-    String announceid;
-    String dt;
-    String event;
-    String date;
-    String name;
+    private String announceid;
+    private String dt;
+    private String event;
+    private String date;
+    private String name;
 
-    public CommitteeAnnouncements(){
-
-    }
 
     public CommitteeAnnouncements(String announceid, String dt, String event,String name, String date) {
         this.announceid = announceid;
