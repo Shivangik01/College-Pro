@@ -27,7 +27,6 @@ public class signup_form extends AppCompatActivity {
     Button btn_register;
     FirebaseAuth firebaseAuth;
     DatabaseReference myRef;
-    FirebaseDatabase mFirebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

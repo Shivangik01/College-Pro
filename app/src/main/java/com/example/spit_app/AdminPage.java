@@ -69,7 +69,7 @@ public class AdminPage extends AppCompatActivity {
                 Intent logout=new Intent(AdminPage.this, login_form.class);
                 startActivity(logout);
                 finish();
-                Toast.makeText(AdminPage.this, "You have logged out successfully!", Toast.LENGTH_LONG).show();
+                Toast.makeText(AdminPage.this, "You have logged out successfully!", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:return super.onOptionsItemSelected(item);

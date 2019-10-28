@@ -2,7 +2,6 @@ package com.example.spit_app.user.announcements;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +65,7 @@ public class Recycler_Adapter extends RecyclerView.Adapter<Recycler_Adapter.View
             intent.putExtra("Date", list.get(getAdapterPosition()).getDate());
             intent.putExtra("Description", list.get(getAdapterPosition()).getDt());
             intent.putExtra("Eventname", list.get(getAdapterPosition()).getEvent());
+            intent.putExtra("AnnouncementId",list.get(getAdapterPosition()).getAnnounceid());
             context.startActivity(intent);
         }
     }

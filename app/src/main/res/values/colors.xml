@@ -5,8 +5,11 @@
     <color name="colorAccent">#8BC34A</color>
     <color name="white">#ECE4E7</color>
     <color name="cyan">#00BCD4</color>
-    <color name="grey">#607D8B</color>
-    <color name="purple">#673AB7</color>
+    <color name="grey">#7697AA</color>
+    <color name="wh">#FFFFFF</color>
+    <color name="calendar">#F0F4C3</color>
+    <color name="orange">#FF9E80</color>
+
 
 
 </resources>
