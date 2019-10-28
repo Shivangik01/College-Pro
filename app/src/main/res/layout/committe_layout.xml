@@ -8,6 +8,5 @@
         android:paddingBottom="10sp"
         android:textSize="25dp"
         android:textColor="#000000"
-        android:fontFamily="cursive"
         android:paddingLeft="10dp"
       />

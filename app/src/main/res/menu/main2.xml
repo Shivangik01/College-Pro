@@ -24,7 +24,7 @@
     <item
         android:title="Settings"
         android:id="@+id/action_settings2"
-        android:icon="@drawable/ic_settings_black_24dp"
+        android:icon="@drawable/ic_settings_white_24dp"
         app:showAsAction="ifRoom">
 
 

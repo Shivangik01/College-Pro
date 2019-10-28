@@ -6,14 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spit_app.R;
-import com.example.spit_app.user.home.RecyclerAdapter;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,18 +36,14 @@ public class AnnouncementsFragment extends Fragment {
 
         DatabaseAnnouncement = FirebaseDatabase.getInstance();
 
-        View root = inflater.inflate(R.layout.fragment_announcements1, container, false);
+        View root = inflater.inflate(R.layout.fragment_announcements_user, container, false);
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclerviewannounce);
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         list= new ArrayList<Announcing>();
 
-        reference =  DatabaseAnnouncement.getReference().child("Announcing");
-        Query query= DatabaseAnnouncement.getReference().child("Announcing").orderByChild("Date");
-
-
-
-        reference.addValueEventListener(new ValueEventListener() {
+        Query query= DatabaseAnnouncement.getReference().child("GeneralAnnouncements").orderByChild("date");
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){

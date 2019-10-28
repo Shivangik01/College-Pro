@@ -36,7 +36,7 @@ public class AnnouncementsFragment2 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container2, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_announcements2, container2, false);
+        View root = inflater.inflate(R.layout.fragment_announcements_admin, container2, false);
 
         final TextView mDisplayDate = (TextView) root.findViewById(R.id.textView4);
 
@@ -78,7 +78,7 @@ public class AnnouncementsFragment2 extends Fragment {
         announce = (EditText) root.findViewById(R.id.textinfo);
         buttonAdd = (Button) root.findViewById(R.id.buttonadd);
 
-        DatabaseAnnouncement= FirebaseDatabase.getInstance().getReference("Announcing");
+        DatabaseAnnouncement= FirebaseDatabase.getInstance().getReference("GeneralAnnouncements");
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
