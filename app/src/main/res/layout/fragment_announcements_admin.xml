@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     android:background="@drawable/background_gradient">
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,9 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:layout_marginStart="16dp"
-
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="70dp"
         android:gravity="left"
         android:text="EVENT NAME"
@@ -32,13 +30,11 @@
         android:id="@+id/text_announce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginStart="16dp"
-
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="90dp"
+
         android:gravity="left"
         android:text="EVENT DESCRIPTION"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -50,12 +46,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textyear"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="30dp"
         android:gravity="start|top"
         android:hint="Enter a short description of the event"
-
         android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/text_announce" />
@@ -65,31 +58,27 @@
         android:layout_width="150dp"
         android:layout_height="42dp"
         android:layout_below="@id/textinfo"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/button2"
         android:text="ADD EVENT"
         android:textAlignment="center"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textinfo" />
+        app:layout_constraintTop_toBottomOf="@id/textinfo" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="355dp"
-        android:layout_marginRight="355dp"
         android:gravity="center"
-        android:textColor="@color/black"
         android:hint="Select Date"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -100,8 +89,6 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="DATE"
@@ -115,19 +102,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textyear"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Enter Event Name"
-
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/textyear" />/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,6 +6,9 @@ public class Announcement {
     private String event;
     private String date;
 
+    public Announcement(){
+
+    }
 
     public Announcement(String announceid, String dt, String event, String date) {
         this.announceid = announceid;

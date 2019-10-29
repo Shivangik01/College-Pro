@@ -49,7 +49,6 @@ public class AnnouncementsFragment2 extends Fragment {
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
-
                 DatePickerDialog dialog = new DatePickerDialog(
                         getActivity(),
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
@@ -65,10 +64,25 @@ public class AnnouncementsFragment2 extends Fragment {
             mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                String date = day + "/" + month + "/" + year;
-                mDisplayDate.setText(date);
-                Date = year + "/" + month + "/" + day;
+                Calendar cal = Calendar.getInstance();
+                int cyear = cal.get(Calendar.YEAR);
+                int cmonth = cal.get(Calendar.MONTH);
+                int cday = cal.get(Calendar.DAY_OF_MONTH);
+                if(year<cyear){
+                    Toast.makeText(getActivity(), "Enter valid date",Toast.LENGTH_SHORT).show();
+                }
+                else if(year==cyear && month<cmonth){
+                    Toast.makeText(getActivity(), "Enter valid date",Toast.LENGTH_SHORT).show();
+                }
+                else if(year==cyear && month==cmonth && day<cday){
+                    Toast.makeText(getActivity(), "Enter valid date",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    month = month + 1;
+                    String date = day + "/" + month + "/" + year;
+                    mDisplayDate.setText(date);
+                    Date = year + "/" + month + "/" + day;
+                }
             }
         };
 
@@ -96,7 +110,35 @@ public class AnnouncementsFragment2 extends Fragment {
         String event= eventname.getText().toString();
         String data=announce.getText().toString();
 
-        if(!TextUtils.isEmpty(data)){
+        if(TextUtils.isEmpty(event)&&TextUtils.isEmpty(data)&&TextUtils.isEmpty(Date)){
+            Toast.makeText(getActivity(), "Enter all the fields",Toast.LENGTH_SHORT).show();
+        }
+
+        else if(TextUtils.isEmpty(Date)&&TextUtils.isEmpty(event)){
+            Toast.makeText(getActivity(), "Enter the Date and Event name",Toast.LENGTH_SHORT).show();
+        }
+
+        else if(TextUtils.isEmpty(Date)&&TextUtils.isEmpty(data)){
+            Toast.makeText(getActivity(), "Enter the Date and Announcement",Toast.LENGTH_SHORT).show();
+        }
+
+        else if(TextUtils.isEmpty(data)&&TextUtils.isEmpty(event)){
+            Toast.makeText(getActivity(), "Enter the Event name and Announcement",Toast.LENGTH_SHORT).show();
+        }
+
+        else if(TextUtils.isEmpty(Date)){
+            Toast.makeText(getActivity(), "Enter the Date",Toast.LENGTH_SHORT).show();
+        }
+
+        else if(TextUtils.isEmpty(event)){
+            Toast.makeText(getActivity(), "Enter the Event name",Toast.LENGTH_SHORT).show();
+        }
+
+        else if(TextUtils.isEmpty(data)){
+            Toast.makeText(getActivity(), "Enter the announcement",Toast.LENGTH_SHORT).show();
+        }
+
+        else if(!TextUtils.isEmpty(data)&&!TextUtils.isEmpty(event)&&!TextUtils.isEmpty(Date)){
 
             String id = DatabaseAnnouncement.push().getKey();
 
@@ -104,9 +146,6 @@ public class AnnouncementsFragment2 extends Fragment {
             DatabaseAnnouncement.child(id).setValue(announceobj);
 
             Toast.makeText(getActivity(), "Announcement added",Toast.LENGTH_LONG).show();
-
-        }else{
-            Toast.makeText(getActivity(), "Enter the announcement",Toast.LENGTH_LONG).show();
 
         }
     }

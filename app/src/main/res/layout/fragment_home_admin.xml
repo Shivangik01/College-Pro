@@ -85,9 +85,11 @@
 
     <EditText
         android:id="@+id/codes"
-        android:layout_width="261dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
         android:hint="Enter a description of the event"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/textView8" />
@@ -98,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="80dp"
@@ -108,7 +110,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/codes" />
+        app:layout_constraintTop_toBottomOf="@id/codes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
