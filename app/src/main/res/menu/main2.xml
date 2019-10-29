@@ -36,11 +36,6 @@
                 app:showAsAction="never" />
 
             <item
-                android:id="@+id/action_change_username2"
-                android:title="Change Username"
-                app:showAsAction="never" />
-
-            <item
                 android:id="@+id/action_change_password2"
                 android:title="Change Password"
                 app:showAsAction="never" />

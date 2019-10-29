@@ -123,10 +123,7 @@ public class signup_form extends AppCompatActivity {
                                     }
                                 }
                             });
-
                 }
-
-
             }
 
         });

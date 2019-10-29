@@ -44,10 +44,6 @@ public class UserPages extends AppCompatActivity {
             case R.id.action_settings:
                 return true;
 
-            case R.id.action_change_username:
-                startActivity(new Intent(UserPages.this, Change_username.class));
-                return true;
-
             case R.id.action_change_password:
                 startActivity(new Intent(UserPages.this, Change_password.class));
                 return true;

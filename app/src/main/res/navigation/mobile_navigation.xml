@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_announcements1"
-        android:name="com.example.spit_app.user.announcements.AnnouncementsFragment"
+        android:name="com.example.spit_app.user.announcements.AnnouncementsFragmentUser"
         android:label="Announcements"
         tools:layout="@layout/fragment_announcements_user" />
 
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_events1"
-        android:name="com.example.spit_app.user.events.EventsFragment"
+        android:name="com.example.spit_app.user.events.EventsFragmentUser"
         android:label="Events"
         tools:layout="@layout/fragment_events_user" />
 </navigation>

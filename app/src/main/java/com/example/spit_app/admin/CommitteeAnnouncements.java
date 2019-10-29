@@ -7,8 +7,10 @@ public class CommitteeAnnouncements {
     private String date;
     private String name;
 
+    public CommitteeAnnouncements() {
+    }
 
-    public CommitteeAnnouncements(String announceid, String dt, String event,String name, String date) {
+    public CommitteeAnnouncements(String announceid, String dt, String event, String name, String date) {
         this.announceid = announceid;
         this.dt = dt;
         this.event = event;
