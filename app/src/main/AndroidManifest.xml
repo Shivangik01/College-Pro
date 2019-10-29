@@ -15,6 +15,7 @@
         <activity android:name=".Change_username" />
         <activity android:name=".Help" />
         <activity android:name=".Profile" />
+        <activity android:name=".user.home.CommitteeAnnouncementDisplay"/>
         <activity android:name=".user.events.EventDisplay" />
         <activity android:name=".admin.AdminDisplayGeneral" />
         <activity android:name=".user.announcements.AnnouncementDisplay" />
