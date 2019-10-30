@@ -83,6 +83,7 @@ public class login_form extends AppCompatActivity {
                 else {
                     Toast.makeText(login_form.this, "Error Occurred", Toast.LENGTH_LONG).show();
                 }
+
             }
         });
 
