@@ -44,7 +44,7 @@ public class EventsFragmentUser extends Fragment {
         String uid=user.getUid();
 
 
-        DatabaseReference reference= DatabaseEvent.getReference().child("Users").child(uid).child("GeneralAnnouncements");
+        DatabaseReference reference= DatabaseEvent.getReference().child("Users").child(uid).child("Announcements");
 
 
         reference.addValueEventListener(new ValueEventListener() {

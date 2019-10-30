@@ -43,7 +43,7 @@ public class AnnouncementDisplay extends AppCompatActivity {
                 firebaseAuth=FirebaseAuth.getInstance();
                 user=firebaseAuth.getCurrentUser();
                 String userId=user.getUid();
-                myRef =FirebaseDatabase.getInstance().getReference("Users").child(userId).child("GeneralAnnouncements");
+                myRef =FirebaseDatabase.getInstance().getReference("Users").child(userId).child("Announcements");
 
                 Announcements announceobj = new Announcements(getIntent().getStringExtra("AnnouncementId"),getIntent().getStringExtra("Description"),getIntent().getStringExtra("Eventname"),getIntent().getStringExtra("Date"));
                 myRef.child(getIntent().getStringExtra("AnnouncementId")).setValue(announceobj);

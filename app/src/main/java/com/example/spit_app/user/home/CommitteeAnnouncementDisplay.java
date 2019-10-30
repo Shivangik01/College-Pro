@@ -44,7 +44,7 @@ public class CommitteeAnnouncementDisplay extends AppCompatActivity {
                 firebaseAuth=FirebaseAuth.getInstance();
                 user=firebaseAuth.getCurrentUser();
                 String userId=user.getUid();
-                myRef =FirebaseDatabase.getInstance().getReference("Users").child(userId).child("CommitteeAnnouncements");
+                myRef =FirebaseDatabase.getInstance().getReference("Users").child(userId).child("Announcements");
 
                 CommitteeAnnouncements announceobj = new CommitteeAnnouncements(getIntent().getStringExtra("AnnouncementId"),getIntent().getStringExtra("Description"),getIntent().getStringExtra("Eventname"),getIntent().getStringExtra("Name"),getIntent().getStringExtra("Date"));
                 myRef.child(getIntent().getStringExtra("AnnouncementId")).setValue(announceobj);

@@ -14,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminPage extends AppCompatActivity {
 
@@ -62,6 +63,9 @@ public class AdminPage extends AppCompatActivity {
 
             case R.id.action_logout2:
 
+                FirebaseAuth firebaseAuth;
+                firebaseAuth= FirebaseAuth.getInstance();
+                firebaseAuth.signOut();
                 Intent logout=new Intent(AdminPage.this, login_form.class);
                 startActivity(logout);
                 finish();

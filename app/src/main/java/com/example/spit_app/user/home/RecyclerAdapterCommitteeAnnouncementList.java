@@ -68,7 +68,7 @@ public class RecyclerAdapterCommitteeAnnouncementList extends RecyclerView.Adapt
             intent.putExtra("Description", list.get(getAdapterPosition()).getDt());
             intent.putExtra("Eventname", list.get(getAdapterPosition()).getEvent());
             intent.putExtra("AnnouncementId",list.get(getAdapterPosition()).getAnnounceid());
-            intent.putExtra("Name", list.get(getAdapterPosition()).getNam());
+            intent.putExtra("Name", list.get(getAdapterPosition()).getName());
             context.startActivity(intent);
 
         }
