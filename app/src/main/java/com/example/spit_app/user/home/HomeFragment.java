@@ -19,7 +19,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private List<String> list;
-    private RecyclerAdapter adapter;
+    private RecyclerAdapterCommitteName adapter;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         String sample[]=getResources().getStringArray(R.array.committees);
         list= Arrays.asList(sample);
-        adapter = new RecyclerAdapter(list);
+        adapter = new RecyclerAdapterCommitteName(list,getContext());
         recyclerView.setAdapter(adapter);
 
         return root;

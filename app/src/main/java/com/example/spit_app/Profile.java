@@ -20,7 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 public class Profile extends AppCompatActivity {
 
     FirebaseDatabase profile;
-    FirebaseAuth firebaseAuth;
     DatabaseReference reference;
     TextView name;
     TextView uid;
@@ -29,7 +28,7 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        Button change_username= (Button)findViewById(R.id.button_profile);
+        Button change_username= findViewById(R.id.button_profile);
         change_username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

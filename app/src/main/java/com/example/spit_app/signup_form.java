@@ -33,13 +33,13 @@ public class signup_form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_form);
 
-        txtusername=(TextInputEditText)findViewById(R.id.username);
-        txtEmail= (TextInputEditText) findViewById(R.id.txt_email);
-        txtPassword= (TextInputEditText) findViewById(R.id.txt_password);
-        txtConfirmPassword= (TextInputEditText) findViewById(R.id.txt_confirmpassword);
-        txtuid =(TextInputEditText) findViewById(R.id.uid1);
+        txtusername=findViewById(R.id.username);
+        txtEmail= findViewById(R.id.txt_email);
+        txtPassword= findViewById(R.id.txt_password);
+        txtConfirmPassword= findViewById(R.id.txt_confirmpassword);
+        txtuid =findViewById(R.id.uid1);
 
-        btn_register=(Button)findViewById(R.id.buttonregister);
+        btn_register=findViewById(R.id.buttonregister);
         firebaseAuth=FirebaseAuth.getInstance();
 
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -123,10 +123,7 @@ public class signup_form extends AppCompatActivity {
                                     }
                                 }
                             });
-
                 }
-
-
             }
 
         });

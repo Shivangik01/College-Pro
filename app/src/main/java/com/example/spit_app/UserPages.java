@@ -14,6 +14,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class UserPages extends AppCompatActivity {
     @Override
@@ -62,6 +64,10 @@ public class UserPages extends AppCompatActivity {
 
             case R.id.action_logout:
 
+
+                FirebaseAuth firebaseAuth;
+                firebaseAuth= FirebaseAuth.getInstance();
+                firebaseAuth.signOut();
                 Intent logout=new Intent(UserPages.this, login_form.class);
                 startActivity(logout);
                 finish();
