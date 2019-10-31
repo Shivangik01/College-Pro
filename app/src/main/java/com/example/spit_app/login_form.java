@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,7 +31,7 @@ public class login_form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_form);
 
-        ScrollView constraintLayout=(ScrollView)findViewById(R.id.login_layout);
+        ScrollView constraintLayout=findViewById(R.id.login_layout);
         AnimationDrawable animationDrawable=(AnimationDrawable) constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
@@ -44,8 +43,10 @@ public class login_form extends AppCompatActivity {
         if (user != null) {
             if (user.getEmail().equals(admin)) {
                 startActivity(new Intent(login_form.this, AdminPage.class));
+                finish();
             } else {
                 startActivity(new Intent(login_form.this, UserPages.class));
+                finish();
             }
         } else {
             txtEmail = (TextInputEditText) findViewById(R.id.e1);
@@ -83,10 +84,13 @@ public class login_form extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(login_form.this, "Login successful", Toast.LENGTH_LONG).show();
                                     if (admin.equals(email))
-                                        startActivity(new Intent(login_form.this, AdminPage.class));
+                                    {finish();
+                                    startActivity(new Intent(login_form.this, AdminPage.class));
+                                        }
                                     else
-                                        startActivity(new Intent(login_form.this, UserPages.class));
-                                    finish();
+                                    { finish();
+                                      startActivity(new Intent(login_form.this, UserPages.class));
+                                    }
                                 } else {
                                     Toast.makeText(login_form.this, "Invalid Password or Email Id", Toast.LENGTH_LONG).show();
                                 }

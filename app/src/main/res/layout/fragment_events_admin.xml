@@ -20,13 +20,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/coannounce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button2"
         android:textColor="@color/white"
         android:layout_marginTop="50dp"
-        android:text="Button"
+        android:text="Committee Announcements"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
