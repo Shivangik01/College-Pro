@@ -85,11 +85,11 @@ public class login_form extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(login_form.this, "Login successful", Toast.LENGTH_LONG).show();
                                     if (admin.equals(email))
-                                    {
+                                    { finish();
                                     startActivity(new Intent(login_form.this, AdminPage.class));
                                         finish();  }
                                     else
-                                    {
+                                    { finish();
                                       startActivity(new Intent(login_form.this, UserPages.class));
                                         finish();
                                     }

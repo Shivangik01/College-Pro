@@ -46,8 +46,8 @@ public class EventsFragmentAdmin extends Fragment {
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         list= new ArrayList<Announcement>();
-
-
+        adapter=new Recycler_Adapter_Admin(list,getContext());
+        recyclerView.setAdapter(adapter);
 
         Query query= AdminAnnouncements.getReference().child("GeneralAnnouncements").orderByChild("date");
         query.addValueEventListener(new ValueEventListener() {
@@ -58,9 +58,7 @@ public class EventsFragmentAdmin extends Fragment {
                     Announcement announce= announcementSnapshot.getValue(Announcement.class);
                     list.add(announce);
                 }
-
-                adapter=new Recycler_Adapter_Admin(list,getContext());
-                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
             }
 
             @Override

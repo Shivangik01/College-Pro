@@ -38,7 +38,10 @@ public class AnnouncementsFragmentUser extends Fragment {
         recyclerView =  root.findViewById(R.id.recyclerviewannounce);
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
         list= new ArrayList<Announcement>();
+        adapter=new Recycler_Adapter(list,getContext());
+        recyclerView.setAdapter(adapter);
         Query query= DatabaseAnnouncement.getReference().child("GeneralAnnouncements").orderByChild("date");
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -47,9 +50,9 @@ public class AnnouncementsFragmentUser extends Fragment {
                     Announcement announce= announcementSnapshot.getValue(Announcement.class);
                     list.add(announce);
                 }
+                adapter.notifyDataSetChanged();
 
-                adapter=new Recycler_Adapter(list,getContext());
-                recyclerView.setAdapter(adapter);
+
             }
 
             @Override
@@ -57,9 +60,7 @@ public class AnnouncementsFragmentUser extends Fragment {
 
             }
         });
-
         return root;
-
 
     }
 }

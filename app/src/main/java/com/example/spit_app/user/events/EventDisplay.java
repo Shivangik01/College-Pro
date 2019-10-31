@@ -44,15 +44,15 @@ public class EventDisplay extends AppCompatActivity {
                 String id= getIntent().getStringExtra("AnnouncementId");
                 FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
                 String uid=user.getUid();
-                DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Users").child(uid).child("GeneralAnnouncements").child(id);
+                DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Users").child(uid).child("Announcements").child(id);
                 ref.removeValue();
                 Toast.makeText(getApplicationContext(), "Event Unmarked", Toast.LENGTH_SHORT).show();
-                Fragment fragment=new EventsFragmentAdmin();
+                Fragment fragment=new EventsFragmentUser();
 
                 if ((fragment != null)) {
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.eventuser, fragment);
+                    fragmentTransaction.replace(R.id.userevent, fragment);
                     fragmentTransaction.commit();
                 }
             }
