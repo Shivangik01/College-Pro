@@ -45,9 +45,7 @@ public class AdminPage extends AppCompatActivity {
             case R.id.action_settings2:
                 return true;
 
-            case R.id.action_change_password2:
-                startActivity(new Intent(AdminPage.this, Change_password.class));
-                return true;
+
 
             case R.id.action_profile2:
                 startActivity(new Intent(AdminPage.this, Profile.class));
