@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity implements Dialog_box.DialogListener {
 
     FirebaseDatabase profile;
     DatabaseReference reference;
@@ -32,8 +32,7 @@ public class Profile extends AppCompatActivity {
         change_username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Profile.this, Change_username.class);
-                startActivity(intent);
+                openDialog();
             }
         });
         name=findViewById(R.id.user);
@@ -58,5 +57,14 @@ public class Profile extends AppCompatActivity {
 
             }
         });
+    }
+    void openDialog(){
+        Dialog_box dialog_box=new Dialog_box();
+        dialog_box.show(getSupportFragmentManager(),"example dialog");
+    }
+
+    @Override
+    public void applyTexts(String username) {
+        name.setText(username);
     }
 }
