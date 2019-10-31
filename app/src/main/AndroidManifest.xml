@@ -12,7 +12,6 @@
         <activity android:name=".user.home.CommitteeAnnouncementsList"></activity>
         <activity android:name=".About" />
         <activity android:name=".Change_password" />
-        <activity android:name=".Change_username" />
         <activity android:name=".Help" />
         <activity android:name=".Profile" />
         <activity android:name=".user.home.CommitteeAnnouncementDisplay"/>
