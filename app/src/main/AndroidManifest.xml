@@ -17,6 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".admin.CommitteeAnnouncementsListAdmin"/>
+        <activity android:name=".admin.CommitteeAnnouncementDisplayAdmin"/>
         <activity android:name=".ChangePassword" />
         <activity android:name=".user.home.CommitteeAnnouncementsList" />
         <activity android:name=".About" />
