@@ -38,6 +38,8 @@ public class AdminDisplayGeneral extends AppCompatActivity {
     EditText Description;
     Button update, delete;
     private String Date;
+    String id;
+    DatabaseReference rf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,11 +105,45 @@ public class AdminDisplayGeneral extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id = getIntent().getStringExtra("AnnouncementId");
+                id = getIntent().getStringExtra("AnnouncementId");
                 DatabaseReference ref=FirebaseDatabase.getInstance().getReference("GeneralAnnouncements").child(id);
                 ref.removeValue();
 
 
+                final DatabaseReference Dr=FirebaseDatabase.getInstance().getReference("Users");
+                Dr.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot idSnapshot: dataSnapshot.getChildren()){
+
+                            rf=FirebaseDatabase.getInstance().getReference(idSnapshot.getKey()).child("Announcements");
+                            rf.addValueEventListener(new ValueEventListener() {
+
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                    for (DataSnapshot annoucements: dataSnapshot.getChildren()){
+                                        String id1=annoucements.getKey();
+                                        if(id1.equals(id)){
+                                            rf=rf.child(id1);
+                                            rf.removeValue();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
 
                 Toast.makeText(getApplicationContext(), "Announcement Deleted", Toast.LENGTH_SHORT).show();
                 Fragment fragment = null;
