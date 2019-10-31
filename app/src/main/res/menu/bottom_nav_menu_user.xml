@@ -5,16 +5,16 @@
         android:id="@+id/navigation_announcements1"
         android:icon="@drawable/ic_home_black_24dp"
         
-        android:title="Announcements" />
+        android:title="Official" />
 
     <item
         android:id="@+id/navigation_home1"
         android:icon="@drawable/ic_announcements_black_24dp"
-        android:title="Home" />
+        android:title="Committee" />
 
     <item
         android:id="@+id/navigation_events1"
         android:icon="@drawable/ic_events_black_24dp"
-        android:title="Events" />
+        android:title="Marked Events" />
 
 </menu>

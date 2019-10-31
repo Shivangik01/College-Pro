@@ -17,10 +17,13 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="119dp"
+            android:layout_height="82dp"
             android:layout_marginTop="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="800dp"
+            android:src="@drawable/red_logo"
+
+            app:layout_constraintBottom_toTopOf="@+id/wecome"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +36,6 @@
             android:text="Hey SPITian!"
             android:textColor="#000"
             android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/logo" />
 
