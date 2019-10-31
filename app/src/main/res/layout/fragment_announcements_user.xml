@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cyan">
+    android:layout_marginBottom="60dp"
+    android:background="@drawable/background_gradient">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

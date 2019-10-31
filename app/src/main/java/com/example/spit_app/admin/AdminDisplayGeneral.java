@@ -147,17 +147,9 @@ public class AdminDisplayGeneral extends AppCompatActivity {
                 });
 
                 Toast.makeText(getApplicationContext(), "Announcement Deleted", Toast.LENGTH_SHORT).show();
-                Fragment fragment = null;
+                finish();
 
 
-                fragment=new EventsFragmentAdmin();
-
-                if ((fragment != null)) {
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.adminevent, fragment);
-                    fragmentTransaction.commit();
-                }
             }
         });
 

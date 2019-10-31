@@ -49,6 +49,7 @@ public class EventsFragmentUser extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear();
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
                     Announcement announce= announcementSnapshot.getValue(Announcement.class);
                     list.add(announce);

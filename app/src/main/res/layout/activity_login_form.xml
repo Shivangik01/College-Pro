@@ -98,10 +98,8 @@
             android:layout_below="@id/p11"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="76dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/button2"
             android:text="LOGIN"
@@ -128,10 +126,8 @@
             android:layout_below="@id/buttonLogin"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/button2"
             android:text="SIGN UP"
@@ -140,6 +136,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/new_user" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
