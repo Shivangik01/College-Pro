@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spit_app.R;
 import com.example.spit_app.user.announcements.Announcement;
+import com.example.spit_app.user.home.RecyclerAdapterCommitteName;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -19,6 +21,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class EventsFragmentAdmin extends Fragment {
@@ -27,7 +30,9 @@ public class EventsFragmentAdmin extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private List<Announcement> list;
+    List<String> listco;
     private Recycler_Adapter_Admin adapter;
+    Button committee;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,11 +40,15 @@ public class EventsFragmentAdmin extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_events_admin, container2, false);
 
+        committee=root.findViewById(R.id.coannounce);
         AdminAnnouncements = FirebaseDatabase.getInstance();
         recyclerView = root.findViewById(R.id.recyclerviewannoucementsadmin);
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         list= new ArrayList<Announcement>();
+
+
+
         Query query= AdminAnnouncements.getReference().child("GeneralAnnouncements").orderByChild("date");
         query.addValueEventListener(new ValueEventListener() {
             @Override
