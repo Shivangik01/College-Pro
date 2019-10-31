@@ -2,6 +2,7 @@ package com.example.spit_app.admin;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ public class Recycler_Adapter_Admin extends RecyclerView.Adapter<Recycler_Adapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.announcements_view, parent, false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_view, parent, false);
         ViewHolder viewHolder= new ViewHolder(view,context,list);
         return viewHolder;
     }

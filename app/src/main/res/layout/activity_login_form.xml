@@ -58,7 +58,6 @@
                 android:id="@+id/e1"
                 android:ems="10"
                 android:hint="Email Id"
-
                 android:inputType="text"
                 android:textSize="22sp"
                 android:layout_marginTop="70dp"
