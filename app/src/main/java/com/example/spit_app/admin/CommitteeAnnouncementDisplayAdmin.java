@@ -42,11 +42,12 @@ public class CommitteeAnnouncementDisplayAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.committee_announcements_admin_display);
 
-        eventname = findViewById(R.id.eventn);
-        mDisplayDate = findViewById(R.id.daten);
-        Description = findViewById(R.id.desn);
-        delete = findViewById(R.id.delete);
-        update = findViewById(R.id.update);
+
+        eventname=findViewById(R.id.eventn);
+        mDisplayDate=findViewById(R.id.daten);
+        Description=findViewById(R.id.desn);
+        delete=findViewById(R.id.delete);
+        update=findViewById(R.id.update);
 
         eventname.setText(getIntent().getStringExtra("Eventname"));
         mDisplayDate.setText(getIntent().getStringExtra("Date"));

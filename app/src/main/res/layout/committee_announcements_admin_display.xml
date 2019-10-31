@@ -29,7 +29,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <EditText
             android:id="@+id/eventn"
             android:layout_width="350dp"
             android:layout_height="50dp"
@@ -81,7 +81,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/textView6" />
 
-        <TextView
+        <EditText
             android:id="@+id/desn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
             app:layout_constraintTop_toTopOf="@id/textView10" />
 
         <Button
-            android:id="@+id/mark"
+            android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
             android:layout_marginTop="60dp"

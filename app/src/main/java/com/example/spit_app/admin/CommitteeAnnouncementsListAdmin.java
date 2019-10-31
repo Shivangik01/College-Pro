@@ -32,23 +32,24 @@ public class CommitteeAnnouncementsListAdmin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_committee_announcements_list);
+        setContentView(R.layout.committee_announcement_list_admin);
 
 
         DatabaseAnnouncement = FirebaseDatabase.getInstance();
-        recyclerView =  findViewById(R.id.recyclerviewcommitteeannounce);
+        recyclerView =  findViewById(R.id.recyclerviewcommitteeannounceadmin);
         layoutManager = new LinearLayoutManager(CommitteeAnnouncementsListAdmin.this);
         recyclerView.setLayoutManager(layoutManager);
         list= new ArrayList<CommitteeAnnouncements>();
         adapter=new RecyclerAdapterCommitteeAnnouncementListAdmin(list, CommitteeAnnouncementsListAdmin.this);
         recyclerView.setAdapter(adapter);
-        ref= DatabaseAnnouncement.getReference().child("CommitteeAnnouncements");
+        ref= DatabaseAnnouncement.getReference("CommitteeAnnouncements");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear();
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
                    String committee=announcementSnapshot.getKey();
-                   DatabaseReference rf=ref.child(committee);
+                   Query rf=ref.child(committee).orderByChild("date");
                    rf.addValueEventListener(new ValueEventListener() {
                        @Override
                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -56,8 +57,8 @@ public class CommitteeAnnouncementsListAdmin extends AppCompatActivity {
                                CommitteeAnnouncements announce= announceSnapshot.getValue(CommitteeAnnouncements.class);
                                list.add(announce);
                            }
+                           adapter.notifyDataSetChanged();
                        }
-
                        @Override
                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -66,7 +67,7 @@ public class CommitteeAnnouncementsListAdmin extends AppCompatActivity {
                 }
 
 
-                adapter.notifyDataSetChanged();
+
 
             }
 

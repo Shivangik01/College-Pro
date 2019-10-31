@@ -62,7 +62,7 @@ public class RecyclerAdapterCommitteeAnnouncementListAdmin extends RecyclerView.
         @Override
         public void onClick(View v) {
 
-            Intent intent= new Intent(context,CommitteeAnnouncementDisplay.class);
+            Intent intent= new Intent(context,CommitteeAnnouncementDisplayAdmin.class);
             intent.putExtra("Date", list.get(getAdapterPosition()).getDate());
             intent.putExtra("Description", list.get(getAdapterPosition()).getDt());
             intent.putExtra("Eventname", list.get(getAdapterPosition()).getEvent());
