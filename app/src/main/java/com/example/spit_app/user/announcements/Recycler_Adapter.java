@@ -42,6 +42,8 @@ public class Recycler_Adapter extends RecyclerView.Adapter<Recycler_Adapter.View
         return list.size();
     }
 
+
+
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView eventname;

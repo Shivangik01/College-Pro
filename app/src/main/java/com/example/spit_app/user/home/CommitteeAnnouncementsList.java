@@ -37,6 +37,8 @@ public class CommitteeAnnouncementsList extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(CommitteeAnnouncementsList.this);
         recyclerView.setLayoutManager(layoutManager);
         list= new ArrayList<CommitteeAnnouncements>();
+        adapter=new RecyclerAdapterCommitteeAnnouncementList(list,CommitteeAnnouncementsList.this);
+        recyclerView.setAdapter(adapter);
         Query query= DatabaseAnnouncement.getReference().child("CommitteeAnnouncements").child(getIntent().getStringExtra("Committee")).orderByChild("date");
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -45,9 +47,8 @@ public class CommitteeAnnouncementsList extends AppCompatActivity {
                     CommitteeAnnouncements announce= announcementSnapshot.getValue(CommitteeAnnouncements.class);
                     list.add(announce);
                 }
+                adapter.notifyDataSetChanged();
 
-                adapter=new RecyclerAdapterCommitteeAnnouncementList(list,CommitteeAnnouncementsList.this);
-                recyclerView.setAdapter(adapter);
             }
 
             @Override

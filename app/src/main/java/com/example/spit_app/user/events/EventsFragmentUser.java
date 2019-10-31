@@ -43,20 +43,20 @@ public class EventsFragmentUser extends Fragment {
         user= FirebaseAuth.getInstance().getCurrentUser();
         String uid=user.getUid();
 
-
         DatabaseReference reference= DatabaseEvent.getReference().child("Users").child(uid).child("Announcements");
 
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear();
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
                     Announcement announce= announcementSnapshot.getValue(Announcement.class);
                     list.add(announce);
                 }
-
                 adapter=new Recycler_Adapter_events(list,getContext());
                 recyclerView.setAdapter(adapter);
+
             }
 
             @Override

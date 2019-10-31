@@ -48,7 +48,6 @@ public class EventsFragmentAdmin extends Fragment {
         list= new ArrayList<Announcement>();
 
 
-
         Query query= AdminAnnouncements.getReference().child("GeneralAnnouncements").orderByChild("date");
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -58,7 +57,6 @@ public class EventsFragmentAdmin extends Fragment {
                     Announcement announce= announcementSnapshot.getValue(Announcement.class);
                     list.add(announce);
                 }
-
                 adapter=new Recycler_Adapter_Admin(list,getContext());
                 recyclerView.setAdapter(adapter);
             }

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,7 +25,6 @@ public class login_form extends AppCompatActivity {
 
     EditText txtEmail,txtPassword;
     FirebaseAuth mfirebaseAuth;
-    TextView forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +55,6 @@ public class login_form extends AppCompatActivity {
             Button btn_login = findViewById(R.id.buttonLogin);
             Button btnsignup = findViewById(R.id.btn_signupform);
             mfirebaseAuth = FirebaseAuth.getInstance();
-            forgotPassword=(TextView)findViewById(R.id.tvForgotPassword);
 
             btnsignup.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
@@ -86,21 +83,15 @@ public class login_form extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                   // Toast.makeText(login_form.this, "Login successful", Toast.LENGTH_LONG).show();
-                                    FirebaseUser firebaseUser = mfirebaseAuth.getInstance().getCurrentUser();
-                                    Boolean emailflag = firebaseUser.isEmailVerified();
-                                    if (!emailflag) {
-                                        Toast.makeText(login_form.this, "Please Verify Your Email Id!", Toast.LENGTH_SHORT).show();
-                                        mfirebaseAuth.signOut();
-                                    } else {
-
-                                        if (admin.equals(email))
-                                        {startActivity(new Intent(login_form.this, AdminPage.class));
-                                        finish();}
-                                        else {
-                                            startActivity(new Intent(login_form.this, UserPages.class));
-                                            finish();
-                                        }
+                                    Toast.makeText(login_form.this, "Login successful", Toast.LENGTH_LONG).show();
+                                    if (admin.equals(email))
+                                    { finish();
+                                    startActivity(new Intent(login_form.this, AdminPage.class));
+                                        finish();  }
+                                    else
+                                    { finish();
+                                      startActivity(new Intent(login_form.this, UserPages.class));
+                                        finish();
                                     }
                                 } else {
                                     Toast.makeText(login_form.this, "Invalid Password or Email Id", Toast.LENGTH_LONG).show();
@@ -113,13 +104,6 @@ public class login_form extends AppCompatActivity {
                 }
             });
 
-            forgotPassword.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(login_form.this,ChangePassword.class));
-                }
-            });
         }
-
     }
 }

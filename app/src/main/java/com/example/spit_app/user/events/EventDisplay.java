@@ -1,6 +1,5 @@
 package com.example.spit_app.user.events;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +12,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.spit_app.R;
-import com.example.spit_app.admin.EventsFragmentAdmin;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -44,17 +42,10 @@ public class EventDisplay extends AppCompatActivity {
                 String id= getIntent().getStringExtra("AnnouncementId");
                 FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
                 String uid=user.getUid();
-                DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Users").child(uid).child("GeneralAnnouncements").child(id);
+                DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Users").child(uid).child("Announcements").child(id);
                 ref.removeValue();
                 Toast.makeText(getApplicationContext(), "Event Unmarked", Toast.LENGTH_SHORT).show();
-                Fragment fragment=new EventsFragmentAdmin();
-
-                if ((fragment != null)) {
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.eventuser, fragment);
-                    fragmentTransaction.commit();
-                }
+               finish();
             }
         });
 
