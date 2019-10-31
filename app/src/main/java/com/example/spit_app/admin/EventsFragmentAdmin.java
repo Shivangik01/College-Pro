@@ -1,5 +1,6 @@
 package com.example.spit_app.admin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spit_app.R;
 import com.example.spit_app.user.announcements.Announcement;
-import com.example.spit_app.user.home.RecyclerAdapterCommitteName;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,7 +21,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class EventsFragmentAdmin extends Fragment {
@@ -64,6 +63,13 @@ public class EventsFragmentAdmin extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        committee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), CommitteeAnnouncementsListAdmin.class));
             }
         });
 

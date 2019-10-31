@@ -47,6 +47,8 @@ public class AnnouncementsFragmentUser extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
+
+
                     Announcement announce= announcementSnapshot.getValue(Announcement.class);
                     list.add(announce);
                 }
