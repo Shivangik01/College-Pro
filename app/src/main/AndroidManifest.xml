@@ -5,16 +5,24 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="spit_app"
+        android:label="CollegePro"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".user.home.CommitteeAnnouncementsList"></activity>
+        <activity android:name=".flash">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".user.home.CommitteeAnnouncementsList" />
         <activity android:name=".About" />
-        <activity android:name=".Change_password" />
         <activity android:name=".Help" />
         <activity android:name=".Profile" />
-        <activity android:name=".user.home.CommitteeAnnouncementDisplay"/>
+        <activity android:name=".user.home.CommitteeAnnouncementDisplay" />
         <activity android:name=".user.events.EventDisplay" />
         <activity android:name=".admin.AdminDisplayGeneral" />
         <activity android:name=".user.announcements.AnnouncementDisplay" />
@@ -27,11 +35,7 @@
             android:label="UserPage"
             android:theme="@style/AppTheme" />
         <activity android:name=".login_form">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".signup_form" />
