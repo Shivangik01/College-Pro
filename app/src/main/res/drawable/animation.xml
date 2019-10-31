@@ -3,14 +3,10 @@
 
     <item
         android:drawable="@drawable/custom_button1"
-        android:duration="4000"/>
+        android:duration="2000"/>
 
     <item
         android:drawable="@drawable/background_gradient"
-        android:duration="4000"/>
-
-    <item
-    android:drawable="@drawable/black_background"
-    android:duration="4000"/>
+        android:duration="2000"/>
 
 </animation-list>
