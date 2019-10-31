@@ -40,6 +40,7 @@ public class AdminDisplayGeneral extends AppCompatActivity {
     private String Date;
     String id;
     DatabaseReference rf;
+    DatabaseReference Dr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,13 +111,13 @@ public class AdminDisplayGeneral extends AppCompatActivity {
                 ref.removeValue();
 
 
-                final DatabaseReference Dr=FirebaseDatabase.getInstance().getReference("Users");
+                Dr=FirebaseDatabase.getInstance().getReference("Users");
                 Dr.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot idSnapshot: dataSnapshot.getChildren()){
 
-                            rf=FirebaseDatabase.getInstance().getReference(idSnapshot.getKey()).child("Announcements");
+                            rf=Dr.child(idSnapshot.getKey()).child("Announcements");
                             rf.addValueEventListener(new ValueEventListener() {
 
                                 @Override
