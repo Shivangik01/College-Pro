@@ -35,11 +35,6 @@
                 android:title="Help"
                 app:showAsAction="never" />
 
-            <item
-                android:id="@+id/action_change_password"
-                android:title="Change Password"
-                app:showAsAction="never" />
-
         </menu>
 
     </item>

@@ -19,37 +19,48 @@
             android:id="@+id/logo"
             android:layout_width="119dp"
             android:layout_height="82dp"
-            android:layout_marginTop="40dp"
+
             android:layout_marginBottom="800dp"
             android:src="@drawable/red_logo"
-
             app:layout_constraintBottom_toTopOf="@+id/wecome"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/college_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bilbo_swash_caps"
+            android:text="College Pro"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
 
         <TextView
             android:id="@+id/wecome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:text="Hey SPITian!"
             android:textColor="#000"
-            android:textSize="30sp"
+            android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logo" />
+            app:layout_constraintTop_toBottomOf="@id/college_pro" />
 
         <TextView
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="60dp"
             android:text="Login to get started!"
             android:textColor="#000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/wecome"
-            />
+            app:layout_constraintTop_toTopOf="@id/wecome" />
 
         <com.google.android.material.textfield.TextInputLayout
 
