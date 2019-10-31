@@ -4,12 +4,12 @@
     tools:context=".user.home.CommitteeAnnouncementsList"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@color/cyan">
+    android:background="@drawable/background_gradient">
+
 <androidx.recyclerview.widget.RecyclerView
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:id="@+id/recyclerviewcommitteeannounce"
-android:background="@color/cyan"
 android:scrollbars="vertical"
     />
 
