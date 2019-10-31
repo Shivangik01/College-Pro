@@ -33,8 +33,8 @@ public class login_form extends AppCompatActivity {
 
         ScrollView constraintLayout=findViewById(R.id.login_layout);
         AnimationDrawable animationDrawable=(AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2000);
-        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.setEnterFadeDuration(1000);
+        animationDrawable.setExitFadeDuration(2000);
         animationDrawable.start();
 
         final String admin = "shivangi.kochrekar@spit.ac.in";
