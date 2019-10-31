@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/navigation_announcements2"
         android:name="com.example.spit_app.admin.AnnouncementsFragmentAdmin"
-        android:label="Announcements"
+        android:label="College Pro"
         tools:layout="@layout/fragment_announcements_admin" />
 
     <fragment
         android:id="@+id/navigation_home2"
         android:name="com.example.spit_app.admin.HomeFragmentAdmin"
-        android:label="Home"
+        android:label="College Pro"
         tools:layout="@layout/fragment_home_admin" />
 
     <fragment
         android:id="@+id/navigation_events2"
         android:name="com.example.spit_app.admin.EventsFragmentAdmin"
-        android:label="Events"
+        android:label="College Pro"
         tools:layout="@layout/fragment_events_admin" />
 </navigation>
