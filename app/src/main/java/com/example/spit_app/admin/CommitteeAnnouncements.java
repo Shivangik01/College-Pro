@@ -2,7 +2,7 @@ package com.example.spit_app.admin;
 
 public class CommitteeAnnouncements {
     private String announceid;
-    private String data;
+    private String dt;
     private String event;
     private String date;
     private String name;
@@ -10,9 +10,9 @@ public class CommitteeAnnouncements {
     public CommitteeAnnouncements() {
     }
 
-    public CommitteeAnnouncements(String announceid, String data, String event, String name, String date) {
+    public CommitteeAnnouncements(String announceid, String dt, String event, String name, String date) {
         this.announceid = announceid;
-        this.data = data;
+        this.dt = dt;
         this.event = event;
         this.date=date;
         this.name=name;
@@ -23,7 +23,7 @@ public class CommitteeAnnouncements {
     }
 
     public String getDt() {
-        return data;
+        return dt;
     }
 
     public String getEvent() {

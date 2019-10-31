@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.spit_app.R;
 import com.example.spit_app.admin.CommitteeAnnouncements;
-import com.example.spit_app.user.announcements.AnnouncementDisplay;
 
 import java.util.List;
 
