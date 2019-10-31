@@ -13,12 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.spit_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.FutureTask;
 
 public class AnnouncementsFragmentUser extends Fragment {
 
@@ -27,6 +30,7 @@ public class AnnouncementsFragmentUser extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private List<Announcement> list;
     private Recycler_Adapter adapter;
+    DatabaseReference ref;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,10 +51,22 @@ public class AnnouncementsFragmentUser extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
-
-
-                    Announcement announce= announcementSnapshot.getValue(Announcement.class);
-                    list.add(announce);
+                    String date=announcementSnapshot.child("date").getKey();
+                    String id=announcementSnapshot.child("announceid").getKey();
+                    Calendar cal = Calendar.getInstance();
+                    int cyear = cal.get(Calendar.YEAR);
+                    int cmonth = cal.get(Calendar.MONTH);
+                    int cday = cal.get(Calendar.DAY_OF_MONTH);
+                    String cdate= cyear + "/" + cmonth + "/" + cday;
+                    if(date.equals(cdate))
+                    {
+                        ref=DatabaseAnnouncement.getReference().child("GeneralAnnouncements").child(id);
+                        ref.removeValue();
+                    }
+                    else {
+                        Announcement announce = announcementSnapshot.getValue(Announcement.class);
+                        list.add(announce);
+                    }
                 }
                 adapter.notifyDataSetChanged();
 
