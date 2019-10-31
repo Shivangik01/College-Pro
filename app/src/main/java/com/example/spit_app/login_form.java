@@ -44,7 +44,8 @@ public class login_form extends AppCompatActivity {
             if (user.getEmail().equals(admin)) {
                 startActivity(new Intent(login_form.this, AdminPage.class));
                 finish();
-            } else {
+            }
+            else {
                 startActivity(new Intent(login_form.this, UserPages.class));
                 finish();
             }
