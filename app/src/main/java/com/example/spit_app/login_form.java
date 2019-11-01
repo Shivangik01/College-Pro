@@ -37,7 +37,7 @@ public class login_form extends AppCompatActivity {
         animationDrawable.setExitFadeDuration(2000);
         animationDrawable.start();
 
-        final String admin = "shivangi.kochrekar@spit.ac.in";
+        final String admin = "kaleneha997@gmail.com";
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
