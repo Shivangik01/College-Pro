@@ -56,7 +56,16 @@ public class AnnouncementsFragmentUser extends Fragment {
                     Calendar cal = Calendar.getInstance();
                     int cyear = cal.get(Calendar.YEAR);
                     int cmonth = cal.get(Calendar.MONTH);
-                    int cday = cal.get(Calendar.DAY_OF_MONTH);
+                    int cday = cal.get(Calendar.DAY_OF_MONTH)-1;
+                    if(cday==0)
+                    {
+                        cmonth=cmonth-1;
+                        if(cmonth==1||cmonth==3||cmonth==5||cmonth==7||cmonth==8||cmonth==10||cmonth==12)
+                        cday=31;
+                        else
+                            cday=30;
+                    }
+
                     String cdate= cyear + "/" + cmonth + "/" + cday;
                     if(date.equals(cdate))
                     {
