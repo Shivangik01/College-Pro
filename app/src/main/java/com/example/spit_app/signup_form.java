@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,8 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class signup_form extends AppCompatActivity {
 
     private static final String TAG = "signup_form";
-    TextInputEditText  txtusername,txtEmail,txtPassword,txtConfirmPassword,txtuid;
+    TextInputEditText  txtusername,txtPassword,txtConfirmPassword,txtuid;
     Button btn_register;
+    TextView txtEmail;
     FirebaseAuth firebaseAuth;
     DatabaseReference myRef;
 
