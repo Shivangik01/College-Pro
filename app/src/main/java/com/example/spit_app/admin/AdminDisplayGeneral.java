@@ -99,6 +99,14 @@ public class AdminDisplayGeneral extends AppCompatActivity {
                     String date = day + "/" + month + "/" + year;
                     mDisplayDate.setText(date);
                     Date = year + "/" + month + "/" + day;
+                    if(month<10 && day<10)
+                        Date = year + "/0" + month + "/0" + day;
+                    else if(month<10 && day>10)
+                        Date = year + "/0" + month + "/" + day;
+                    else if(month>=10 && day<10)
+                        Date = year + "/" + month + "/0" + day;
+                    else
+                        Date = year + "/" + month + "/" + day;
                 }
             }
         };
