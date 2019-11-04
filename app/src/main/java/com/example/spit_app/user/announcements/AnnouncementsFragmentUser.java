@@ -51,8 +51,8 @@ public class AnnouncementsFragmentUser extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
-                    String date=announcementSnapshot.child("date").getKey();
-                    String id=announcementSnapshot.child("announceid").getKey();
+                    String date=announcementSnapshot.child("date").getValue(String.class);
+                    String id=announcementSnapshot.child("announceid").getValue(String.class);
                     Calendar cal = Calendar.getInstance();
                     int cyear = cal.get(Calendar.YEAR);
                     int cmonth = cal.get(Calendar.MONTH);
