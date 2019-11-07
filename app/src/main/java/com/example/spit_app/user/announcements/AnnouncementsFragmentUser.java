@@ -30,7 +30,7 @@ public class AnnouncementsFragmentUser extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private List<Announcement> list;
     private Recycler_Adapter adapter;
-    DatabaseReference ref;
+    private DatabaseReference ref;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -50,6 +50,7 @@ public class AnnouncementsFragmentUser extends Fragment {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear();
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
                     String date=announcementSnapshot.child("date").getValue(String.class);
                     String id=announcementSnapshot.child("announceid").getValue(String.class);

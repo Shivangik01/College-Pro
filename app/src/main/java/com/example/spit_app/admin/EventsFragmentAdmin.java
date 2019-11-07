@@ -16,11 +16,13 @@ import com.example.spit_app.R;
 import com.example.spit_app.user.announcements.Announcement;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class EventsFragmentAdmin extends Fragment {
@@ -31,7 +33,8 @@ public class EventsFragmentAdmin extends Fragment {
     private List<Announcement> list;
     List<String> listco;
     private Recycler_Adapter_Admin adapter;
-    Button committee;
+    private DatabaseReference ref;
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,7 +42,7 @@ public class EventsFragmentAdmin extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_events_admin, container2, false);
 
-        committee=root.findViewById(R.id.coannounce);
+        Button committee = root.findViewById(R.id.coannounce);
         AdminAnnouncements = FirebaseDatabase.getInstance();
         recyclerView = root.findViewById(R.id.recyclerviewannoucementsadmin);
         layoutManager = new LinearLayoutManager(getContext());
@@ -53,8 +56,31 @@ public class EventsFragmentAdmin extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 for(DataSnapshot announcementSnapshot: dataSnapshot.getChildren()){
-                    Announcement announce= announcementSnapshot.getValue(Announcement.class);
-                    list.add(announce);
+                    String date=announcementSnapshot.child("date").getValue(String.class);
+                    String id=announcementSnapshot.child("announceid").getValue(String.class);
+                    Calendar cal = Calendar.getInstance();
+                    int cyear = cal.get(Calendar.YEAR);
+                    int cmonth = cal.get(Calendar.MONTH);
+                    int cday = cal.get(Calendar.DAY_OF_MONTH)-1;
+                    if(cday==0)
+                    {
+                        cmonth=cmonth-1;
+                        if(cmonth==1||cmonth==3||cmonth==5||cmonth==7||cmonth==8||cmonth==10||cmonth==12)
+                            cday=31;
+                        else
+                            cday=30;
+                    }
+
+                    String cdate= cyear + "/" + cmonth + "/" + cday;
+                    if(date.equals(cdate))
+                    {
+                        ref=AdminAnnouncements.getReference().child("GeneralAnnouncements").child(id);
+                        ref.removeValue();
+                    }
+                    else {
+                        Announcement announce = announcementSnapshot.getValue(Announcement.class);
+                        list.add(announce);
+                    }
                 }
                 adapter=new Recycler_Adapter_Admin(list,getContext());
                 recyclerView.setAdapter(adapter);
