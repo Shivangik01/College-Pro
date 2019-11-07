@@ -99,7 +99,19 @@ public class signup_form extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        FirebaseUser user =firebaseAuth.getCurrentUser();
+                                        String userId=user.getUid();
+                                        myRef=FirebaseDatabase.getInstance().getReference("Users");
+                                        String newUser=txtusername.getText().toString();
+                                        String newUID=txtuid.getText().toString();
+                                        String newEmail=txtEmail.getText().toString();
 
+                                        myRef.child(userId).child("ID").setValue(userId);
+                                        myRef.child(userId).child("Username").setValue(newUser);
+                                        myRef.child(userId).child("UID").setValue(newUID);
+                                        myRef.child(userId).child("Email").setValue(newEmail);
+                                        txtuid.setText("");
+                                        txtusername.setText("");
                                         sendEmailVerification();
 
                                     } else {
@@ -125,19 +137,7 @@ public class signup_form extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(signup_form.this, "Successfully Registered , Verification mail is sent!", Toast.LENGTH_SHORT).show();
-                        FirebaseUser user =firebaseAuth.getCurrentUser();
-                        String userId=user.getUid();
-                        myRef=FirebaseDatabase.getInstance().getReference("Users");
-                        String newUser=txtusername.getText().toString();
-                        String newUID=txtuid.getText().toString();
-                        String newEmail=txtEmail.getText().toString();
 
-                        myRef.child(userId).child("ID").setValue(userId);
-                        myRef.child(userId).child("Username").setValue(newUser);
-                        myRef.child(userId).child("UID").setValue(newUID);
-                        myRef.child(userId).child("Email").setValue(newEmail);
-                        txtuid.setText("");
-                        txtusername.setText("");
 
                         firebaseAuth.signOut();
                         finish();

@@ -31,7 +31,7 @@ public class Dialog_box extends AppCompatDialogFragment {
         final View view=inflater.inflate(R.layout.dialog_layout,null);
 
         builder.setView(view)
-                .setTitle("Login")
+                .setTitle("Username")
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
