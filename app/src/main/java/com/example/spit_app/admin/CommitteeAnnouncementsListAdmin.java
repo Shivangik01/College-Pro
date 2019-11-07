@@ -65,10 +65,6 @@ public class CommitteeAnnouncementsListAdmin extends AppCompatActivity {
                        }
                    });
                 }
-
-
-
-
             }
 
             @Override
